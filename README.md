@@ -43,6 +43,10 @@ Or install it yourself as:
 
 ## Contributing
 
+Имена хранятся в отдельных YAML файлах по первой букве алфавита в дирректории /lib/male_or_female/data_dource. 
+
+При публикации гема все эти файлы собираются в один скопилированный yml командой rake data:build.
+
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
