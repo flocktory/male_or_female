@@ -71,6 +71,7 @@ module MaleOrFemale
 
     def prepare_name(name)
       name = UnicodeUtils.downcase(name).strip
+      name = name.gsub(/[ё]/i, 'е')
       name[0] = UnicodeUtils.upcase(name[0])
       name
     rescue

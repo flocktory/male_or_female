@@ -44,4 +44,16 @@ class ExceptionTest < Test::Unit::TestCase
     assert_equal name.gender, name_should
     assert_equal name.format, name_should
   end
+
+  def test_unknown_yo
+    name = MaleOrFemale::Detector.new('ПЁТР')
+    name_should = MaleOrFemale::MALE
+    assert_equal name.gender, name_should
+  end
+
+  def test_unknown_yo2
+    name = MaleOrFemale::Detector.new('Лёша')
+    name_should = MaleOrFemale::MALE
+    assert_equal name.gender, name_should
+  end
 end
