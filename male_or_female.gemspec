@@ -6,11 +6,11 @@ require 'male_or_female/version'
 Gem::Specification.new do |spec|
   spec.name          = 'male_or_female'
   spec.version       = MaleOrFemale::VERSION
-  spec.authors       = 'Alex Shilov'
-  spec.email         = 'sashapashamasha@gmail.com'
-  spec.description   = 'Гем для распознования пола по имени человека, а также формального/неформального формата имени. http://typograf.herokuapp.com/gender'
+  spec.authors       = 'Alex Shilov, Yury Alexandrov'
+  spec.email         = 'dizeru@gmail.com'
+  spec.description   = 'Гем для распознования пола по имени человека, а также формального/неформального формата имени.'
   spec.summary       = 'What the gender by name. Russian names supported only.'
-  spec.homepage      = 'https://github.com/shlima/MaleOrFemale'
+  spec.homepage      = 'https://github.com/dizer/male_or_female'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($/)

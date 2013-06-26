@@ -1,10 +1,10 @@
-![MaleOrFemale](https://raw.github.com/shlima/MaleOrFemale/master/doc/logo.png)
+Forked from https://github.com/shlima/MaleOrFemale
 
 _MaleOrFemale_ - gem для определения пола человека (male, female, unisex) по его имени. Гем также определяет тип имени (официальное или неформальное).
 
-Демонстрация работы: http://typograf.herokuapp.com/gender
-
 **На данный момент гем определяет только русскоязычные имена**
+
+Пол определяется по справочнику
 
 ## Использование
 
@@ -15,23 +15,13 @@ _MaleOrFemale_ - gem для определения пола человека (ma
     
 ## Параметры
 
-Гем может принимать параметр *source* при создании экземпляра класса. Он указывает на источник данных (один скомпилированный файл или множество файлов по букве алфавита).
-
-    MaleOrFemale::Detector.new('Саша', source: :compiled)
-    
-    MaleOrFemale::Detector.new('Олег', source: :source)
-    
-Режим 'compiled' включен по-умолчанию. 
-
-Режим 'source' берет данные из файлов по первой букве имени. Данный режим, теоретически, выгодно использовать при небольшом количестве запросов. 
-
-Однако, в данном случае, загружаемые файлы имеют в названии юникод-символы, что может выдавать исключение, будте аккуратны с этим режимом.
+    MaleOrFemale::Detector.new('Саша')
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'male_or_female'
+    gem 'male_or_female', :git => 'git://github.com/dizer/male_or_female.git'
 
 And then execute:
 

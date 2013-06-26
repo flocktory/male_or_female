@@ -18,9 +18,8 @@ module MaleOrFemale
 
   class Detector
     def initialize(name, options = {})
-      source = options[:source] || 'compiled'
-      @name = prepare_name(name)
-      @data = load_data(@name[0], source.to_sym)
+      @name   = prepare_name(name)
+      @data   = load_data!
       @result = detect
     end
 
@@ -36,20 +35,20 @@ module MaleOrFemale
       result.nil? ? UNKNOWN : result
     end
 
+    def reset!
+      @@data = nil
+    end
+
+    def reload!
+      reset!
+      load_data!
+    end
+
     # PRIVATE
     private
 
-    def load_data(letter, source = :source)
-      case source
-        when :source
-          source = "#{SOURCE_DIR}/ru/#{UnicodeUtils.downcase(letter)}.yaml"
-          return nil unless File.exist?(source)
-          YAML.load_file(File.open(source))
-        when :compiled
-          YAML.load_file(File.open("#{COMPILED_DIR}/ru.yaml"))
-        else
-          raise ArgumentError.new("Invalid source option: #{source}")
-      end
+    def load_data!
+      @@data ||= YAML.load_file(File.open("#{COMPILED_DIR}/ru.yaml"))
     end
 
     # Проверет имя (возьмет первую букву от имени, проверит значение в
